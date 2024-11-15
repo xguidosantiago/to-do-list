@@ -35,6 +35,8 @@ class todo:
         input("ingrese enter para continuar...")
 
     def getTarea(self, id):
-        return self.getLstTareas()[id-1]
+        for tarea in self.getLstTareas():
+            if tarea.getId() == id:
+                return tarea
 
 

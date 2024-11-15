@@ -5,14 +5,14 @@ class tarea:
     def __init__(self, id, titulo):
         self.idTarea = id
         self.titulo = titulo
-        self.notas = []
+        self.lstNotas = []
         self.fecha = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         self.estado = False
 
     def agregarNota(self, mensaje):
         pNota = nota()
         pNota.setMensaje(mensaje)
-        self.notas.append(pNota)
+        self.lstNotas.append(pNota)
         print("nota añadida exitosamente")
     
     def getId(self):
@@ -31,5 +31,4 @@ class tarea:
             return "Pendiente"
     
     def getNotas(self):
-        for pNota in self.notas:
-            print(f"{pNota.getFecha()}: {pNota.getMensaje()}")
+        return self.lstNotas

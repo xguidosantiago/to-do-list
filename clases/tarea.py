@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime
 from .nota import nota
 
 class tarea:

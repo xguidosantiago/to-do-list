@@ -7,7 +7,7 @@ class todo:
         self.lstTareas = []
         self.idTarea = 1
 
-    def getTareas(self):
+    def getLstTareas(self):
         return self.lstTareas
     
     def setTareas(self,tarea):
@@ -33,3 +33,8 @@ class todo:
         self.idTarea +=1
         print("tarea creada exitosamente")
         input("ingrese enter para continuar...")
+
+    def getTarea(self, id):
+        return self.getLstTareas()[id]
+
+

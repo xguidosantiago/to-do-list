@@ -28,7 +28,7 @@ def main ():
             pTitulo =  pTarea.getTitulo()
             pFecha = pTarea.getFecha()
             pNotas = pTarea.getNotas()
-            print(f"\n fecha: {pFecha}, \ntitulo: {pTitulo} \n notas: ")
+            print(f"\n\n fecha: {pFecha}, \ntitulo: {pTitulo} \n notas: ")
             if len(pNotas) > 0:
                 for nota in pNotas:
                     print(f"{nota}")

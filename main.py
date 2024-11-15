@@ -27,7 +27,8 @@ def main ():
             pTarea = pTodo.getTarea(idTarea)
             pTitulo =  pTarea.getTitulo()
             pFecha = pTarea.getFecha()
-            print(f"")
+            pNotas = pTarea.getNotas()
+            print(f"fecha: {pFecha}, titulo: {pTitulo}")
 
 
 

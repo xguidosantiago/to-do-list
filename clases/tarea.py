@@ -10,8 +10,7 @@ class tarea:
         self.estado = "Pendiente"
 
     def agregarNota(self, mensaje):
-        pNota = nota()
-        pNota.setMensaje(mensaje)
+        pNota = nota(mensaje)
         self.lstNotas.append(pNota)
     
     def getId(self):

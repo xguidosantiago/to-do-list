@@ -31,7 +31,7 @@ def main ():
             print(f"\n fecha: {pFecha}, \ntitulo: {pTitulo} \n notas: ")
             if len(pNotas) > 0:
                 for pnota in pNotas:
-                    print(f"{pnota}")
+                    print(f"{pnota.getFecha()}: '{pnota.getMensaje()}'")
             print("\n1. Agregar Nota")
             print("2. Cambiar Estado")
             print("3. Eliminar")
@@ -46,7 +46,7 @@ def main ():
                 input(f"se modificó estado a {pTarea.getEstado()}")
             elif opcion == 3:
                 idEliminar = int(input("Ingrese id a eliminar: "))
-                pTarea.eliminarTarea(idEliminar)
+                pTodo.eliminarTarea(idEliminar)
                 input(f"se eliminó la tarea con id {idEliminar}")
 
     while True:

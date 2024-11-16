@@ -1,10 +1,6 @@
 from datetime import datetime
 
-class nota:
-    def __init__(self):
-        self.fechaNota = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        self.mensaje = ""
-    
+class nota:  
     def __init__(self, msj):
         self.fechaNota = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         self.mensaje = msj

@@ -24,12 +24,15 @@ def main ():
         elif opc == 2:
             
             if len(pTodo.getLstTareas()) > 0:
-                idTarea = int(input("ingrese id a visualizar > "))
+                idTarea = int(input("ingrese ID a visualizar > "))
                 while True:
                     os.system("cls")
                     pTarea = pTodo.getTarea(idTarea)
+                    if pTarea is None:
+                        input("\nLa tarea con el ID ingresado no existe...")
+                        break
                     pNotas = pTarea.getNotas()
-                    print(f"\nFecha: {pTarea.getFecha()}\nTitulo: {pTarea.getTitulo()}\nEstado: {pTarea.getEstado()}\nNotas: \n")
+                    print(f"\nFecha de creación: {pTarea.getFecha()}\nTitulo: {pTarea.getTitulo()}\nEstado: {pTarea.getEstado()}\nNotas: \n")
                     if len(pNotas) > 0:
                         for pnota in pNotas:
                             print(f"{pnota.getFecha()}: '{pnota.getMensaje()}'")
@@ -39,7 +42,7 @@ def main ():
                     print("2. Cambiar Estado")
                     print("3. Eliminar")
                     print("4. volver al menu")
-                    opcion = int(input("Ingrese opcion > "))
+                    opcion = int(input("Ingrese opción > "))
 
                     if opcion == 1:
                         msj = input("ingrese nota: ")
@@ -49,14 +52,15 @@ def main ():
                         pTarea.setEstado()
                         input(f"se modificó estado a {pTarea.getEstado()}")
                     elif opcion == 3:
-                        idEliminar = int(input(f"desea eliminar la tarea con ID {idTarea}? 1.si - 2. no"))
+                        idEliminar = int(input(f"desea eliminar la tarea con ID {idTarea}? 1.si - 2. no > "))
                         if idEliminar == 1:
                             pTodo.eliminarTarea(idTarea)
-                            input(f"se eliminó la tarea con id {idEliminar}")
+                            input(f"se eliminó la tarea con ID {idTarea}")
+                            break
                     elif opcion == 4:
                         break
             else:
-                input("\nNo hay tareas cargadas")
+                input("\nNo hay tareas cargadas...")
 
     while True:
         pTodo.imprimirTareas()

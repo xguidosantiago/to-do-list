@@ -37,8 +37,6 @@ class todo:
         for tarea in self.getLstTareas():
             if tarea.getId() == id:
                 return tarea
-            else:
-                input("no hay tareas con el id ingresado")
 
     def eliminarTarea(self, id):
         for tarea in self.getLstTareas():

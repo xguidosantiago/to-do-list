@@ -2,7 +2,7 @@ from datetime import datetime
 from clases.nota import nota
 from clases.tarea import tarea
 from clases.todo import todo
-import os
+import os, time
 
 # programa
 def main ():
@@ -13,6 +13,7 @@ def main ():
     def listarOpciones():
         print("1. Nueva tarea")
         print("2. Ver tarea")
+        print("3. Salir")
         opcion = int(input("ingrese opcion > "))
         return opcion
 
@@ -20,9 +21,12 @@ def main ():
         if opc == 1:
             pTitulo = input("ingrese el titulo de la tarea \n> ")
             pTodo.crearTarea(pTitulo)
-
+        elif opc == 3:
+            print("Saliendo del Programa...")
+            time.sleep(2)
+            os.system("cls")
+            exit()
         elif opc == 2:
-            
             if len(pTodo.getLstTareas()) > 0:
                 idTarea = int(input("ingrese ID a visualizar > "))
                 while True:
@@ -30,7 +34,7 @@ def main ():
                     pTarea = pTodo.getTarea(idTarea)
                     if pTarea is None:
                         input("\nLa tarea con el ID ingresado no existe...")
-                        break
+                        return False
                     pNotas = pTarea.getNotas()
                     print(f"\nFecha de creación: {pTarea.getFecha()}\nTitulo: {pTarea.getTitulo()}\nEstado: {pTarea.getEstado()}\nNotas: \n")
                     if len(pNotas) > 0:
@@ -56,9 +60,9 @@ def main ():
                         if idEliminar == 1:
                             pTodo.eliminarTarea(idTarea)
                             input(f"se eliminó la tarea con ID {idTarea}")
-                            break
+                            return False
                     elif opcion == 4:
-                        break
+                        return False
             else:
                 input("\nNo hay tareas cargadas...")
 

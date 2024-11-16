@@ -1,6 +1,5 @@
 import os
 from .tarea import tarea
-from .nota import nota
 
 class todo:
     def __init__(self):
@@ -38,5 +37,10 @@ class todo:
         for tarea in self.getLstTareas():
             if tarea.getId() == id:
                 return tarea
+
+    def eliminarTarea(self, id):
+        for tarea in self.getLstTareas():
+            if tarea.getId() == id:
+                self.lstTareas.remove(tarea)
 
 

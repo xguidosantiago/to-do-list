@@ -7,13 +7,12 @@ class tarea:
         self.titulo = titulo
         self.lstNotas = []
         self.fecha = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        self.estado = False
+        self.estado = "Pendiente"
 
     def agregarNota(self, mensaje):
         pNota = nota()
         pNota.setMensaje(mensaje)
         self.lstNotas.append(pNota)
-        print("nota añadida exitosamente")
     
     def getId(self):
         return self.idTarea
@@ -25,10 +24,13 @@ class tarea:
         return self.fecha
     
     def getEstado(self):
-        if self.estado == True:
-            return "Finalizado"
+        return self.estado
+    
+    def setEstado(self):
+        if self.estado == "Pendiente":
+            self.estado == "Finalizado"
         else:
-            return "Pendiente"
+            self.estado == "Pendiente"
     
     def getNotas(self):
         return self.lstNotas

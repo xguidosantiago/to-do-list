@@ -22,32 +22,34 @@ def main ():
             pTodo.crearTarea(pTitulo)
 
         elif opc == 2:
-            idTarea = int(input("ingrese id a visualizar > "))
-            pTarea = pTodo.getTarea(idTarea)
-            pTitulo =  pTarea.getTitulo()
-            pFecha = pTarea.getFecha()
-            pNotas = pTarea.getNotas()
+            if len(pTodo.getLstTareas()) > 0:
+                idTarea = int(input("ingrese id a visualizar > "))
+                pTarea = pTodo.getTarea(idTarea)
+                pNotas = pTarea.getNotas()
+                print(f"\n fecha: {pTarea.getFecha()} \ntitulo: {pTarea.getTitulo()} \n notas: \n")
+                if len(pNotas) > 0:
+                    for pnota in pNotas:
+                        print(f"{pnota.getFecha()}: '{pnota.getMensaje()}'")
+                print("-"*30)
+                print("1. Agregar Nota")
+                print("2. Cambiar Estado")
+                print("3. Eliminar")
+                opcion = int(input("Ingrese opcion > "))
 
-            print(f"\n fecha: {pFecha}, \ntitulo: {pTitulo} \n notas: ")
-            if len(pNotas) > 0:
-                for pnota in pNotas:
-                    print(f"{pnota.getFecha()}: '{pnota.getMensaje()}'")
-            print("\n1. Agregar Nota")
-            print("2. Cambiar Estado")
-            print("3. Eliminar")
-            opcion = int(input("Ingrese opcion > "))
-
-            if opcion == 1:
-                msj = input("ingrese nota: ")
-                pTarea.agregarNota(msj)
-                input("nota añadida exitosamente")
-            elif opcion == 2:
-                pTarea.setEstado()
-                input(f"se modificó estado a {pTarea.getEstado()}")
-            elif opcion == 3:
-                idEliminar = int(input("Ingrese id a eliminar: "))
-                pTodo.eliminarTarea(idEliminar)
-                input(f"se eliminó la tarea con id {idEliminar}")
+                if opcion == 1:
+                    msj = input("ingrese nota: ")
+                    pTarea.agregarNota(msj)
+                    input("nota añadida exitosamente")
+                elif opcion == 2:
+                    pTarea.setEstado()
+                    input(f"se modificó estado a {pTarea.getEstado()}")
+                elif opcion == 3:
+                    idEliminar = int(input(f"desea eliminar la tarea con ID {idTarea}? 1.si - 2. no"))
+                    if idEliminar == 1:
+                        pTodo.eliminarTarea(idTarea)
+                        input(f"se eliminó la tarea con id {idEliminar}")
+            else:
+                input("\nNo hay tareas cargadas")
 
     while True:
         pTodo.imprimirTareas()

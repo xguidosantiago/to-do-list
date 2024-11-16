@@ -27,9 +27,9 @@ class tarea:
     
     def setEstado(self):
         if self.estado == "Pendiente":
-            self.estado == "Finalizado"
+            self.estado = "Finalizado"
         else:
-            self.estado == "Pendiente"
+            self.estado = "Pendiente"
     
     def getNotas(self):
         return self.lstNotas
